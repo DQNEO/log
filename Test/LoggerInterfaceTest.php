@@ -2,10 +2,15 @@
 
 namespace Psr\Log\Test;
 
+if (!class_exists('\\PHPUnit\\Framework\\TestCase', true)) {
+    class_alias('\\PHPUnit_Framework_TestCase', '\\PHPUnit\\Framework\\TestCase');
+}
+
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
+use PHPUnit\Framework\TestCase;
 
-abstract class LoggerInterfaceTest extends \PHPUnit_Framework_TestCase
+abstract class LoggerInterfaceTest extends TestCase
 {
     /**
      * @return LoggerInterface

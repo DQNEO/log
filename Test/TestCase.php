@@ -8,6 +8,7 @@ use Psr\Log\AbstractLogger;
 class TestCase extends LoggerInterfaceTest
 {
     private $logger;
+
     /**
      * @return LoggerInterface
      */
@@ -18,24 +19,18 @@ class TestCase extends LoggerInterfaceTest
     }
     
     /**
-     * This must return the log messages in order.
-     *
-     * The simple formatting of the messages is: "<LOG LEVEL> <MESSAGE>".
-     *
-     * Example ->error('Foo') would yield "error Foo".
-     *
      * @return string[]
      */
     public function getLogs()
     {
         return $this->logger->data;
     }
-
 }
 
 class MyLogger extends AbstractLogger
 {
     public $data = array();
+    
     public function log($level, $message, array $context = array())
     {
         if ($level === 'invalid level') {
